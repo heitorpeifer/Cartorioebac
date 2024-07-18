@@ -54,10 +54,21 @@ int registro () //Função responsável por cadastrar os usuários no sistema
 	fprintf(file,cargo);
 	fclose(file);
 	
+	printf("\t1 Incluir novo cadastro \n \n");
+	printf("\t2 Retornar ao menu \n \n");
 	system ("pause");
+	scanf("%s");
+			if("%d = 1"){
+			system("cls");
+			registro ();
+	    }
+		else("%d > 1");{
+			main ();
+		}
+		
 	
-	
-}
+	}
+
 
 
 int consulta ()
@@ -75,7 +86,7 @@ int consulta ()
 	
 	if(file == NULL)
 	{
-		printf("Não foi possível abrir o arquivo, não localizado. /n");
+		printf("Não foi possível abrir o arquivo, não localizado. \n");
 	}
 	
 	while(fgets(conteudo, 200, file) !=NULL)
@@ -84,6 +95,18 @@ int consulta ()
 		printf("%s", conteudo);
 		printf ("\n\n");
 	}	
+	
+	printf("\t1 Consultar outro cadastro \n \n");
+	printf("\t2 Retornar ao menu \n \n");
+	system ("pause");
+	scanf("%s");
+			if("%d = 1"){
+			system("cls");
+			consulta ();
+	    }
+		else("%d" > 1);{
+			system("cls");
+		}
 		
 	system("pause");
 }
