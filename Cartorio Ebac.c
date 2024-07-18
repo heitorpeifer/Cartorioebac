@@ -53,20 +53,6 @@ int registro () //Função responsável por cadastrar os usuários no sistema
 	file = fopen(arquivo,"a");
 	fprintf(file,cargo);
 	fclose(file);
-	
-	printf("\t1 Incluir novo cadastro \n \n");
-	printf("\t2 Retornar ao menu \n \n");
-	system ("pause");
-	scanf("%s");
-			if("%d = 1"){
-			system("cls");
-			registro ();
-	    }
-		else("%d > 1");{
-			main ();
-		}
-		
-	
 	}
 
 
@@ -95,20 +81,6 @@ int consulta ()
 		printf("%s", conteudo);
 		printf ("\n\n");
 	}	
-	
-	printf("\t1 Consultar outro cadastro \n \n");
-	printf("\t2 Retornar ao menu \n \n");
-	system ("pause");
-	scanf("%s");
-			if("%d = 1"){
-			system("cls");
-			consulta ();
-	    }
-		else("%d" > 1);{
-			system("cls");
-		}
-		
-	system("pause");
 }
 
 int deletar()
@@ -122,7 +94,6 @@ int deletar()
 	FILE *file;
 	file = fopen(cpf, "r"); //procurar e ler o valor (cpf) 
 	printf("O usuário foi deletado com sucesso. \n");
-	system ("pause");
 	
 	if(file == NULL)
 	{
@@ -151,7 +122,7 @@ int main ()
 		printf("Escolha a opção desejada do menu: \n");
 		printf("\t1 - Registrar nomes \n");
 		printf("\t2 - Consultar nomes \n");
-		printf("\t3 - Deletar nomes \n"); 
+		printf("\t4 - Sair do software \n"); 
 		printf("Opção: ");//fim do menu
 	
 		scanf("%d", &opcao); //armazenando escolha do usuário
@@ -161,21 +132,69 @@ int main ()
 		switch(opcao)
 		{
 			case 1:
-			registro (); //chamada de funções
-			break;
+				registro (); //chamada de funções
+					int newOption;
+
+                	while (newOption != 2) {
+	                    printf("\t 1 -  Incluir novo cadastro \n \n");
+	                    printf("\t 2 -  Retornar ao menu \n \n");
+
+                    	scanf("%d", &newOption);
+
+                    if (newOption == 1) {
+                        registro();
+                    } else {
+                    	break;
+                    }
+                }
+
+                break;
+
 			
 			case 2: 
-			consulta ();
-			break;
-			
+				consulta ();
+				int intention;
+
+                	while (intention != 2) {
+	                    printf("\t 1 -  Consultar outro cadastro \n \n");
+	                    printf("\t 2 -  Retornar ao menu \n \n");
+
+                    	scanf("%d", &intention);
+
+                    if (intention == 1) {
+                        consulta();
+                    } else {
+                        break;
+                    }
+                }
+            			break;
 			case 3: 
 			deletar ();
-			break;
+			int intencao;
+
+                	while (intencao != 2) {
+	                    printf("\t 1 -  Deletar outro usuário \n \n");
+	                    printf("\t 2 -  Retornar ao menu \n \n");
+
+                    	scanf("%d", &intencao);
+
+                    if (intencao == 1) {
+                        consulta();
+                    } else {
+                        break;
+                    }
+                }
+						break;
+						
+			case 4:
+					printf("Obrigado por usar nosso programa.");
+					return 0;
+					break;
 			
 			default:
-			printf("Essa opção não está disponível.\n");
-			system ("pause");
-			break;
+					printf("Essa opção não está disponível.\n");
+					system ("pause");
+					break;
 		}
 }	}
 
